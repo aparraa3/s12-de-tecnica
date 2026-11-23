@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Calificaciones</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef2f7;
+            margin: 0;
+            padding: 30px 15px;
+        }
+
+        .contenedor {
+            max-width: 850px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #00000015;
+        }
+
+        h1 {
+            text-align: center;
+            color: #173b65;
+        }
+
+        .descripcion {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: #173b65;
+            font-size: 19px;
+        }
+
+        .notas {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+        }
+
+        input {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #ccd3dd;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        input:focus {
+            outline: 2px solid #4388d1;
+        }
+
+        .referencia {
+            margin-top: 25px;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 20px;
+            background: #1769aa;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #104c7e;
+        }
+
+        #resultados {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f3f7fc;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .resultado-item {
+            padding: 10px;
+            margin: 8px 0;
+            background: white;
+            border-left: 4px solid #1769aa;
+            border-radius: 4px;
+        }
+
+        .exito {
+            color: #168344;
+            font-weight: bold;
+        }
+
+        .error {
+            color: #d22c2c;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .notas {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contenedor {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <h1>Sistema de busqueda y analisis de calificaciones</h1>
+
+        <p class="descripcion">
+            Ingrese las calificaciones de los 15 estudiantes.
+            Las notas deben estar entre 0 y 10.
+        </p>
+
+        <h2>Calificaciones de los estudiantes</h2>
+
+        <div class="notas" id="contenedorNotas">
+            <input type="number" id="nota1" placeholder="Estudiante 1" min="0" max="10" step="any">
+            <input type="number" id="nota2" placeholder="Estudiante 2" min="0" max="10" step="any">
+            <input type="number" id="nota3" placeholder="Estudiante 3" min="0" max="10" step="any">
+            <input type="number" id="nota4" placeholder="Estudiante 4" min="0" max="10" step="any">
+            <input type="number" id="nota5" placeholder="Estudiante 5" min="0" max="10" step="any">
+            <input type="number" id="nota6" placeholder="Estudiante 6" min="0" max="10" step="any">
+            <input type="number" id="nota7" placeholder="Estudiante 7" min="0" max="10" step="any">
+            <input type="number" id="nota8" placeholder="Estudiante 8" min="0" max="10" step="any">
+            <input type="number" id="nota9" placeholder="Estudiante 9" min="0" max="10" step="any">
+            <input type="number" id="nota10" placeholder="Estudiante 10" min="0" max="10" step="any">
+            <input type="number" id="nota11" placeholder="Estudiante 11" min="0" max="10" step="any">
+            <input type="number" id="nota12" placeholder="Estudiante 12" min="0" max="10" step="any">
+            <input type="number" id="nota13" placeholder="Estudiante 13" min="0" max="10" step="any">
+            <input type="number" id="nota14" placeholder="Estudiante 14" min="0" max="10" step="any">
+            <input type="number" id="nota15" placeholder="Estudiante 15" min="0" max="10" step="any">
+        </div>
+
+        <div class="referencia">
+            <h2>Calificacion de referencia</h2>
+
+            <input
+                type="number"
+                id="referencia"
+                placeholder="Ingrese una nota para buscar"
+                min="0"
+                max="10"
+                step="any"
+            >
+        </div>
+
+        <button onclick="analizarCalificaciones()">
+            Analizar calificaciones
+        </button>
+
+        <div id="resultados"></div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
